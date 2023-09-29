@@ -20,6 +20,13 @@ function CancelModal({ handleClose, selectedId, isOpen }: IModalProps) {
 	const [btnDisabled, setBtnDisabled] = useState<boolean>(false);
 	const [cancelStatus, setCancelStatus] = useState<boolean | null>(null);
 
+	const handleCancelAppointment = (id: number) => {
+		setBtnDisabled(true);
+		cancelOneAppointment(id).then(() => {
+			console.log;
+		});
+	};
+
 	const closeOnEscapwKey = (e: KeyboardEvent): void => {
 		if (e.key === "Escape") {
 			handleClose(false);
