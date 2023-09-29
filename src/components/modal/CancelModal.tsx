@@ -1,6 +1,6 @@
 import Portal from "../portal/portal";
 import { AppointmentContext } from "../../context/appointments/AppointmentsContext";
-import { useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { CSSTransition } from "react-transition-group";
 import useAppointmentService from "../../services/AppointmentService";
 
@@ -14,8 +14,11 @@ interface IModalProps {
 
 function CancelModal({ handleClose, selectedId, isOpen }: IModalProps) {
 	const nodeRef = useRef<HTMLDivElement>(null);
-	const { cancelActiveAppointment } = useAppointmentService();
+	const { cancelOneAppointment } = useAppointmentService();
 	const { getActiveAppointments } = useContext(AppointmentContext);
+
+	const [btnDisabled, setBtnDisabled] = useState<boolean>(false);
+	const [cancelStatus, setCancelStatus] = useState<boolean | null>(null);
 
 	const closeOnEscapwKey = (e: KeyboardEvent): void => {
 		if (e.key === "Escape") {
@@ -32,7 +35,7 @@ function CancelModal({ handleClose, selectedId, isOpen }: IModalProps) {
 	}, [handleClose]);
 
 	const cancelAppointment = (id: number): void => {
-		cancelActiveAppointment(id).then(() => {
+		cancelOneAppointment(id).then(() => {
 			getActiveAppointments();
 		});
 
