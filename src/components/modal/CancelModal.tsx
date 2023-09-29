@@ -1,6 +1,8 @@
 import Portal from "../portal/portal";
-import { useEffect, useRef } from "react";
+import { AppointmentContext } from "../../context/appointments/AppointmentsContext";
+import { useEffect, useRef, useContext } from "react";
 import { CSSTransition } from "react-transition-group";
+import useAppointmentService from "../../services/AppointmentService";
 
 import "./modal.scss";
 
@@ -12,6 +14,8 @@ interface IModalProps {
 
 function CancelModal({ handleClose, selectedId, isOpen }: IModalProps) {
 	const nodeRef = useRef<HTMLDivElement>(null);
+	const { cancelActiveAppointment } = useAppointmentService();
+	const { getActiveAppointments } = useContext(AppointmentContext);
 
 	const closeOnEscapwKey = (e: KeyboardEvent): void => {
 		if (e.key === "Escape") {
@@ -26,6 +30,14 @@ function CancelModal({ handleClose, selectedId, isOpen }: IModalProps) {
 			document.body.removeEventListener("keydown", closeOnEscapwKey);
 		};
 	}, [handleClose]);
+
+	const cancelAppointment = (id: number): void => {
+		cancelActiveAppointment(id).then(() => {
+			getActiveAppointments();
+		});
+
+		handleClose(false);
+	};
 
 	return (
 		<Portal>
@@ -42,7 +54,12 @@ function CancelModal({ handleClose, selectedId, isOpen }: IModalProps) {
 							Are you sure you want to delete the appointment? #{selectedId}
 						</span>
 						<div className="modal__btns">
-							<button className="modal__ok">Ok</button>
+							<button
+								className="modal__ok"
+								onClick={() => cancelAppointment(selectedId)}
+							>
+								Ok
+							</button>
 							<button
 								className="modal__close"
 								onClick={() => handleClose(false)}

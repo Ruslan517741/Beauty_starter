@@ -6,6 +6,7 @@ import {
 	IAppointment,
 	ActiveAppointment,
 } from "../shared/interfaces/appointment.interfaces";
+import { json } from "stream/consumers";
 
 const requiredFields = ["id", "date", "name", "service", "phone", "canceled"];
 
@@ -43,10 +44,19 @@ const useAppointmentService = () => {
 		return transformed;
 	};
 
+	const cancelActiveAppointment = async (id: number): Promise<void> => {
+		await request({
+			url: `${_apiBase}/${id}`,
+			method: "PATCH",
+			body: JSON.stringify({ canceled: true }),
+		});
+	};
+
 	return {
 		loadingStatus,
 		getAllAppointments,
 		getAllActiveAppointments,
+		cancelActiveAppointment,
 	};
 };
 
