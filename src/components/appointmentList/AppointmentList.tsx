@@ -48,6 +48,7 @@ function AppointmentList() {
 						{...item}
 						key={item.id}
 						openModal={handleOpenModal}
+						getActiveAppointments={getActiveAppointments}
 					/>
 				);
 			})}

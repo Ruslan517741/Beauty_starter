@@ -1,6 +1,5 @@
 {
-  "appointments": [
-    {
+  "appointments": [{
       "id": 1,
       "date": "2023-09-01T12:10",
       "name": "Alex Smith",
@@ -30,7 +29,7 @@
       "name": "Kim Paul",
       "service": "Cleaning",
       "phone": "+1 928 345 356",
-      "canceled": false
+      "canceled": true
     },
     {
       "id": 5,
@@ -62,7 +61,7 @@
       "name": "Kim Paul",
       "service": "Cleaning",
       "phone": "+1 928 345 356",
-      "canceled": true
+      "canceled": false
     },
     {
       "id": 9,
@@ -70,7 +69,7 @@
       "name": "Kim Paul",
       "service": "Cleaning",
       "phone": "+1 928 345 356",
-      "canceled": true
+      "canceled": false
     },
     {
       "id": 10,
@@ -78,7 +77,55 @@
       "name": "Kim Paul",
       "service": "Cleaning",
       "phone": "+1 928 345 356",
-      "canceled": true
+      "canceled": false
+    },
+    {
+      "id": 11,
+      "date": "2023-10-10T09:26",
+      "name": "Kim Paul",
+      "service": "Cleaning",
+      "phone": "+1 928 345 356",
+      "canceled": false
+    },
+    {
+      "id": 12,
+      "date": "2023-10-10T09:14",
+      "name": "Kim Paul",
+      "service": "Cleaning",
+      "phone": "+1 928 345 356",
+      "canceled": false
+    },
+    {
+      "id": 13,
+      "date": "2023-10-10T04:16",
+      "name": "Kim Paul",
+      "service": "Cleaning",
+      "phone": "+1 928 345 356",
+      "canceled": false
+    },
+    {
+      "id": 14,
+      "date": "2023-10-10T02:35",
+      "name": "Kim Paul",
+      "service": "Cleaning",
+      "phone": "+1 928 345 356",
+      "canceled": false
+    },
+    {
+      "id": 15,
+      "date": "2023-10-20T14:13",
+      "name": "Kim ssssssssssssssssssssssssssPaul",
+      "service": "Cleaning",
+      "phone": "+1 928 345 356",
+      "canceled": false
+    },
+    {
+      "id": 16,
+      "date": "2023-10-21T14:13",
+      "name": "Kim Paul",
+      "service": "Cleaning",
+      "phone": "+1 928 345 356",
+      "canceled": false
     }
   ]
 }
