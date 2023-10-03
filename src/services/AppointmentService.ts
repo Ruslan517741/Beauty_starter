@@ -1,12 +1,14 @@
-import { useHttp } from "../hooks/http.hook";
-import hasRequiredFields from "../utils/hasRequiredFields";
-import dayjs from "dayjs";
-
 import {
 	IAppointment,
 	ActiveAppointment,
 } from "../shared/interfaces/appointment.interfaces";
 import { json } from "stream/consumers";
+import { useHttp } from "../hooks/http.hook";
+import hasRequiredFields from "../utils/hasRequiredFields";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+
+dayjs.extend(customParseFormat);
 
 const requiredFields = ["id", "date", "name", "service", "phone", "canceled"];
 
@@ -52,11 +54,26 @@ const useAppointmentService = () => {
 		});
 	};
 
+	const createNewAppointment = async (body: IAppointment) => {
+		const id = new Date().getTime();
+		body["id"] = id;
+		body["date"] = dayjs(body.date, "DD/MM/YYYY HH:mm").format(
+			"YYYY-MM-DDTHH:mm"
+		);
+
+		return await request({
+			url: _apiBase,
+			method: "POST",
+			body: JSON.stringify(body),
+		});
+	};
+
 	return {
 		loadingStatus,
 		getAllAppointments,
 		getAllActiveAppointments,
 		cancelOneAppointment,
+		createNewAppointment,
 	};
 };
 
