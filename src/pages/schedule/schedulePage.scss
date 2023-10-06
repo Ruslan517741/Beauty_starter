@@ -14,6 +14,9 @@
 		display: grid;
 		grid-auto-rows: 140px;
 		row-gap: 25px;
+		&-empty {
+			text-align: center;
+		}
 	}
 	&__reload {
 		padding: 10px 20px;

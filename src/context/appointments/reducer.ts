@@ -3,12 +3,16 @@ import {
 	IAppointment,
 	ActiveAppointment,
 } from "../../shared/interfaces/appointment.interfaces";
+
+import { LooseValue } from "react-calendar/dist/cjs/shared/types";
+
 import { loadingStatusOptions } from "../../hooks/http.hook";
 
 export interface IAppointmentState {
 	allAppointments: IAppointment[] | [];
 	activeAppointments: ActiveAppointment[] | [];
 	appointmentLoadingStatus: loadingStatusOptions;
+	calendarDate: LooseValue;
 }
 
 export default function reducer(
@@ -37,6 +41,11 @@ export default function reducer(
 			return {
 				...state,
 				appointmentLoadingStatus: "error",
+			};
+		case ActionsTypes.SET_CALENDAR_DATE:
+			return {
+				...state,
+				calendarDate: action.payload,
 			};
 		default:
 			return state;

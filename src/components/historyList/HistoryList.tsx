@@ -7,11 +7,20 @@ import Error from "../error/Error";
 import { AppointmentContext } from "../../context/appointments/AppointmentsContext";
 
 function HistoryList() {
-	const { allAppointments, getAppointments, appointmentLoadingStatus } =
-		useContext(AppointmentContext);
+	const {
+		allAppointments,
+		getAppointments,
+		appointmentLoadingStatus,
+		calendarDate,
+		setDateAndFilter,
+	} = useContext(AppointmentContext);
 
 	useEffect(() => {
 		getAppointments();
+	}, [calendarDate]);
+
+	useEffect(() => {
+		setDateAndFilter([null, null]);
 	}, []);
 
 	if (appointmentLoadingStatus === "loading") {
@@ -25,6 +34,20 @@ function HistoryList() {
 					Try to reload
 				</button>
 			</>
+		);
+	}
+	if (allAppointments.length === 0 && calendarDate) {
+		return (
+			<div className="history__list-empty">
+				There are no active appointments for this interval
+			</div>
+		);
+	}
+	if (allAppointments.length === 0) {
+		return (
+			<div className="history__list-empty">
+				There are no active appointments{" "}
+			</div>
 		);
 	}
 

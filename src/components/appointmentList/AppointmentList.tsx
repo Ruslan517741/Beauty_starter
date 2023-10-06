@@ -12,6 +12,8 @@ function AppointmentList() {
 		activeAppointments,
 		getActiveAppointments,
 		appointmentLoadingStatus,
+		calendarDate,
+		setDateAndFilter,
 	} = useContext(AppointmentContext);
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +21,10 @@ function AppointmentList() {
 
 	useEffect(() => {
 		getActiveAppointments();
+	}, [calendarDate]);
+
+	useEffect(() => {
+		setDateAndFilter([null, null]);
 	}, []);
 
 	const handleOpenModal = useCallback((id: number) => {
@@ -37,6 +43,20 @@ function AppointmentList() {
 					Try to reload
 				</button>
 			</>
+		);
+	}
+	if (activeAppointments.length === 0 && calendarDate) {
+		return (
+			<div className="schedule__list-empty">
+				There are no active appointments for this interval
+			</div>
+		);
+	}
+	if (activeAppointments.length === 0) {
+		return (
+			<div className="schedule__list-empty">
+				There are no active appointments{" "}
+			</div>
 		);
 	}
 
