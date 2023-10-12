@@ -40,7 +40,6 @@ function CAForm() {
 				alert("Error while creating new appointment");
 			});
 		getActiveAppointments();
-		console.log(formData);
 	};
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +48,6 @@ function CAForm() {
 			...prevData,
 			[e.target.name]: e.target.value,
 		}));
-		console.log(formData);
 	};
 
 	return (

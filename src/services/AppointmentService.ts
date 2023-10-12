@@ -1,6 +1,7 @@
 import {
 	IAppointment,
 	ActiveAppointment,
+	IUser,
 } from "../shared/interfaces/appointment.interfaces";
 import { json } from "stream/consumers";
 import { useHttp } from "../hooks/http.hook";
@@ -68,12 +69,19 @@ const useAppointmentService = () => {
 		});
 	};
 
+	const getLoginedUsers = async (): Promise<IUser[]> => {
+		const res = await request({ url: "http://localhost:3001/login" });
+
+		return res;
+	};
+
 	return {
 		loadingStatus,
 		getAllAppointments,
 		getAllActiveAppointments,
 		cancelOneAppointment,
 		createNewAppointment,
+		getLoginedUsers,
 	};
 };
 

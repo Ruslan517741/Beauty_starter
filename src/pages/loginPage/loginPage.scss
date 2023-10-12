@@ -1,0 +1,69 @@
+@import "../../style/variables.scss";
+
+.login {
+    &__form {
+        position: relative;
+        width: 300px;
+        height: 254px;
+        margin: 328px auto 328px auto;
+        padding: 20px;
+
+        background: #FFF;
+        box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.25);
+        &-title {
+            text-align: center;
+            color: rgba(0, 0, 0, 0.70);
+            font-family: Open Sans;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 600;
+        }
+    }
+    &__status {
+        position: absolute;
+        margin-top: 5px;
+		font-weight: 600;
+		font-size: 13px;
+		line-height: 12px;
+		color: #ca1414;
+		text-align: center;
+    }
+    label {
+        display: block;
+		margin-top: 20px;
+        color: rgba(0, 0, 0, 0.70);
+        font-family: Open Sans;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        span {
+            color: $cancel;
+        }
+    }
+    input {
+        width: 260px;
+        padding-left: 10px;
+        height: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        background: $inputs;
+        ::placeholder {
+            color: rgba(0, 0, 0, 0.50);
+            font-family: Open Sans;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+    button {
+        display: block;
+        margin: 25px auto 25px auto;
+        width: 150px;
+        height: 40px;
+        border-radius: 24px;
+        border: 1px solid rgba(0, 0, 0, 0.40);
+        background: rgba(217, 217, 217, 0.00);
+        cursor: pointer;
+    }
+    
+}

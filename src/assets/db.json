@@ -1,4 +1,8 @@
 {
+  "login": [{
+    "name": "admin",
+    "password": "admin"
+  }],
   "appointments": [{
       "id": 1,
       "date": "2023-09-01T12:10",

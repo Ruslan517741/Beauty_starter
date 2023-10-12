@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 
-type HTTPRequestMethods = "GET" | "POST" | "PATCH" | "DELETE";
+type HTTPRequestMethods = "GET" | "POST" | "PATCH" | "DELETE" | "HEAD";
 export type loadingStatusOptions = "idle" | "loading" | "error";
 interface HTTPHeaders {
 	[key: string]: string;
