@@ -43,7 +43,6 @@ function CancelModal({ handleClose, selectedId, isOpen }: IModalProps) {
 	};
 
 	const closeOnEscapeKey = (e: KeyboardEvent): void => {
-		console.log(cancelStatus);
 		if (e.key === "Escape") {
 			closeModal();
 		}

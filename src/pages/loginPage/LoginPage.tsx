@@ -1,5 +1,5 @@
 import useAppointmentService from "../../services/AppointmentService";
-import { FormEvent, ChangeEvent, useState } from "react";
+import { FormEvent, ChangeEvent, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./loginPage.scss";
@@ -13,12 +13,19 @@ function LoginPage() {
 	const [checkingStatus, setCheckingStatus] = useState<boolean>(false);
 
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (localStorage.getItem("token")) {
+			navigate("/schedule");
+		}
+	}, []);
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setCheckingStatus(true);
 		const loginedUsers = await getLoginedUsers();
 		await loginedUsers.forEach((item) => {
 			if (item.name === userName && item.password === userPassword) {
+				localStorage.setItem("token", JSON.stringify(item.token));
 				setUserIsExiting(true);
 				navigate("/schedule");
 			} else {

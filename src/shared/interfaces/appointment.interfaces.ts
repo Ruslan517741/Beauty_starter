@@ -12,4 +12,5 @@ export type ActiveAppointment = Omit<IAppointment, "canceled">;
 export interface IUser {
 	name: string;
 	password: string;
+	token: string;
 }

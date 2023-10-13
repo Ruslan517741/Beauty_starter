@@ -4,6 +4,7 @@ import {
 	Outlet,
 	useLocation,
 } from "react-router-dom";
+import { useState } from "react";
 
 import Header from "../header/Header";
 import SchedulePage from "../../pages/schedule/SchedulePage";
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/",
-				element: <SchedulePage />,
+				element: <LoginPage />,
 			},
 			{
 				path: "/schedule",
@@ -44,15 +45,32 @@ function App() {
 	return <RouterProvider router={router} />;
 }
 
+function checkToken(token: string | null): JSX.Element {
+	if (token) {
+		return (
+			<>
+				<AppointmentContextProvider>
+					<Outlet />
+				</AppointmentContextProvider>
+			</>
+		);
+	} else {
+		return <LoginPage />;
+	}
+}
+
 function Root() {
 	let page = useLocation();
 
+	const token = localStorage.getItem("token");
+
 	return (
 		<main className="board">
-			{page.pathname === "/login" ? null : <Header />}
-			<AppointmentContextProvider>
+			{page.pathname === "/login" || !token ? null : <Header />}
+			{/* <AppointmentContextProvider>
 				<Outlet />
-			</AppointmentContextProvider>
+			</AppointmentContextProvider> */}
+			{checkToken(token)}
 		</main>
 	);
 }

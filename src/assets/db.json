@@ -1,7 +1,8 @@
 {
   "login": [{
     "name": "admin",
-    "password": "admin"
+    "password": "admin",
+    "token": "adminadmin"
   }],
   "appointments": [{
       "id": 1,
