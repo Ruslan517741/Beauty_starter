@@ -39,3 +39,14 @@
 		}
 	}
 }
+
+.iconLogout {
+	position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 60px;
+	opacity: 65%;
+	&:hover {
+		opacity: 100%;
+	}
+}

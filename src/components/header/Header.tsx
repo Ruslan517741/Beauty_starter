@@ -1,8 +1,13 @@
 import { NavLink, Link } from "react-router-dom";
 
+import iconlogout from "./iconlogout.png";
 import "./header.scss";
 
 function Header() {
+	const LogOut = () => {
+		localStorage.removeItem("token");
+	};
+
 	return (
 		<header className="header">
 			<Link to="/" className="logo">
@@ -34,6 +39,14 @@ function Header() {
 					</li>
 				</ul>
 			</nav>
+			<Link to="/login" onClick={LogOut}>
+				<img
+					className="iconLogout"
+					data-tooltip="LogOut"
+					src={iconlogout}
+					alt="icon logout"
+				/>
+			</Link>
 		</header>
 	);
 }
