@@ -1,10 +1,13 @@
 {
-  "login": [{
-    "name": "admin",
-    "password": "admin",
-    "token": "adminadmin"
-  }],
-  "appointments": [{
+  "login": [
+    {
+      "name": "admin",
+      "password": "admin",
+      "token": "adminadmin"
+    }
+  ],
+  "appointments": [
+    {
       "id": 1,
       "date": "2023-09-01T12:10",
       "name": "Alex Smith",
@@ -83,6 +86,38 @@
       "service": "Cleaning",
       "phone": "+1 928 345 356",
       "canceled": false
+    },
+    {
+      "name": "Kim Paul1",
+      "service": "Cleaning",
+      "phone": "+1 123 123 123",
+      "date": "2023-11-10T09:10",
+      "canceled": false,
+      "id": 1697707197863
+    },
+    {
+      "name": "Kim Paul2",
+      "service": "Cleaning",
+      "phone": "+1 123 123 123",
+      "date": "2023-11-10T09:10",
+      "canceled": false,
+      "id": 1697707217289
+    },
+    {
+      "name": "Kim Paul2",
+      "service": "Cleaning",
+      "phone": "+1 123 123 123",
+      "date": "2023-11-10T09:10",
+      "canceled": true,
+      "id": 1697707397912
+    },
+    {
+      "name": "Kim Paul2",
+      "service": "Cleaning",
+      "phone": "+1 123 123 123",
+      "date": "2023-11-10T09:10",
+      "canceled": true,
+      "id": 1697707927823
     }
   ]
 }
