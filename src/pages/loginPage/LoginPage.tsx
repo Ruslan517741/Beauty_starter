@@ -86,3 +86,69 @@ function LoginPage() {
 }
 
 export default LoginPage;
+
+// ///////example
+
+// const [allMaterials, setAllMaterials] = useState<string[]>(["a", "b", "c"]);
+
+// function optionsForForm(prevValue, value) {
+// 	let selectedMaterials<string[] | []> = [];
+
+// 	if (prevValue) {
+// 		selectedMaterials = selectedMaterials.filter((item) => item ==! prevValue);
+// 	}
+// 	if (value) {
+// 		selectedMaterials = [...selectedMaterials, value]
+// 	}
+
+// 	let materialsForSelect = allMaterials.filter((item) => {
+// 		return !selectedMaterials.includes(item);
+// 	});
+
+// 	let materialsForSelect = allMaterials.reduce((acc, item) => {
+// 		if (!selectedMaterials.includes(item)) {
+// 			acc.push(item);
+// 		}
+// 		return acc;
+// 	}, []);
+// 	// allMaterials.forEach((item) => {
+// 	// 	selectedMaterials.forEach((selectedItem) => {
+// 	// 		if (item ==! selectedItem) {
+// 	// 			materialsForSelect.push()
+// 	// 		}
+// 	// 	})
+// 	// });
+
+// 	return materialsForSelect;
+// }
+
+// 	return (
+// 		<FormComponent optionsForForm={optionForForm}/>
+// 	)
+// // компонеонт формы
+
+// function FormComponent({optionsForForm}) {
+// 	const (prevValue, setPrevValue) = useState('');
+// 	const (value, setValue) = useState('');
+
+// 	useEffect(() => {
+// 		setPrevValue(value);
+// 	}, value)
+
+// 	function optionsForSelect(e){
+// 		setValue(e.target.value);
+
+// 		let options = optionsForForm(prevValue, value);
+// 		return [...options, e.target.value]
+// 	}
+
+// 	let elements = optionsForSelect.map((item) => {
+// 		<option value="item">item</option>
+// 	})
+
+// 	return (
+// 		<select name="select" onChange={() => optionsForSelect(e)}>
+// 			{elements}
+// 		</select>
+// 	)
+// }
